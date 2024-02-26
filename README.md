@@ -1,2 +1,2 @@
-# psychic-broccoli
-提交大模型微调训练营作业
+#lcy_llm_homework
+本仓库提交大模型微调训练营作业
