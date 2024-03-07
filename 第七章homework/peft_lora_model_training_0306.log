@@ -1,0 +1,175 @@
+INFO:root:Load Dataset
+INFO:root:DatasetDict({
+    train: Dataset({
+        features: ['client_id', 'path', 'audio', 'sentence', 'up_votes', 'down_votes', 'age', 'gender', 'accent', 'locale', 'segment'],
+        num_rows: 29056
+    })
+    validation: Dataset({
+        features: ['client_id', 'path', 'audio', 'sentence', 'up_votes', 'down_votes', 'age', 'gender', 'accent', 'locale', 'segment'],
+        num_rows: 10581
+    })
+    test: Dataset({
+        features: ['client_id', 'path', 'audio', 'sentence', 'up_votes', 'down_votes', 'age', 'gender', 'accent', 'locale', 'segment'],
+        num_rows: 10581
+    })
+})
+INFO:root:Dataset Sample 0
+INFO:root:{'audio': {'path': '/root/.cache/huggingface/datasets/downloads/extracted/dcc5967c754d4c815fc005d6e297d84537028996cbcf6b34190517630cbc40b4/zh-CN_train_0/common_voice_zh-CN_33211332.mp3', 'array': array([ 5.09317033e-11, -7.27595761e-12, -6.54836185e-11, ...,
+       -5.96661994e-06,  2.71382887e-05,  1.29687978e-05]), 'sampling_rate': 16000}, 'sentence': '性喜温暖润湿气候且耐寒。'}
+INFO:root:Tokenized Dataset
+INFO:root:DatasetDict({
+    train: Dataset({
+        features: ['audio', 'sentence', 'input_features', 'labels'],
+        num_rows: 29056
+    })
+    validation: Dataset({
+        features: ['audio', 'sentence', 'input_features', 'labels'],
+        num_rows: 10581
+    })
+    test: Dataset({
+        features: ['audio', 'sentence', 'input_features', 'labels'],
+        num_rows: 10581
+    })
+})
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+INFO:root:打印lora微调训练的模型参数
+INFO:root:None
+INFO:root:train start.
+INFO:root:模型训练效果输出：
+INFO:root:TrainOutput(global_step=454, training_loss=0.3789426287890531, metrics={'train_runtime': 25449.5783, 'train_samples_per_second': 1.142, 'train_steps_per_second': 0.018, 'train_loss': 0.3789426287890531, 'epoch': 1.0})
+INFO:root:查看模型参数：
+INFO:root:PeftModel(
+  (base_model): LoraModel(
+    (model): WhisperForConditionalGeneration(
+      (model): WhisperModel(
+        (encoder): WhisperEncoder(
+          (conv1): Conv1d(80, 1280, kernel_size=(3,), stride=(1,), padding=(1,))
+          (conv2): Conv1d(1280, 1280, kernel_size=(3,), stride=(2,), padding=(1,))
+          (embed_positions): Embedding(1500, 1280)
+          (layers): ModuleList(
+            (0-31): 32 x WhisperEncoderLayer(
+              (self_attn): WhisperSdpaAttention(
+                (k_proj): Linear8bitLt(in_features=1280, out_features=1280, bias=False)
+                (v_proj): lora.Linear8bitLt(
+                  (base_layer): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+                  (lora_dropout): ModuleDict(
+                    (default): Dropout(p=0.05, inplace=False)
+                  )
+                  (lora_A): ModuleDict(
+                    (default): Linear(in_features=1280, out_features=4, bias=False)
+                  )
+                  (lora_B): ModuleDict(
+                    (default): Linear(in_features=4, out_features=1280, bias=False)
+                  )
+                  (lora_embedding_A): ParameterDict()
+                  (lora_embedding_B): ParameterDict()
+                )
+                (q_proj): lora.Linear8bitLt(
+                  (base_layer): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+                  (lora_dropout): ModuleDict(
+                    (default): Dropout(p=0.05, inplace=False)
+                  )
+                  (lora_A): ModuleDict(
+                    (default): Linear(in_features=1280, out_features=4, bias=False)
+                  )
+                  (lora_B): ModuleDict(
+                    (default): Linear(in_features=4, out_features=1280, bias=False)
+                  )
+                  (lora_embedding_A): ParameterDict()
+                  (lora_embedding_B): ParameterDict()
+                )
+                (out_proj): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+              )
+              (self_attn_layer_norm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (activation_fn): GELUActivation()
+              (fc1): Linear8bitLt(in_features=1280, out_features=5120, bias=True)
+              (fc2): Linear8bitLt(in_features=5120, out_features=1280, bias=True)
+              (final_layer_norm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+            )
+          )
+          (layer_norm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+        )
+        (decoder): WhisperDecoder(
+          (embed_tokens): Embedding(51865, 1280, padding_idx=50257)
+          (embed_positions): WhisperPositionalEmbedding(448, 1280)
+          (layers): ModuleList(
+            (0-31): 32 x WhisperDecoderLayer(
+              (self_attn): WhisperSdpaAttention(
+                (k_proj): Linear8bitLt(in_features=1280, out_features=1280, bias=False)
+                (v_proj): lora.Linear8bitLt(
+                  (base_layer): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+                  (lora_dropout): ModuleDict(
+                    (default): Dropout(p=0.05, inplace=False)
+                  )
+                  (lora_A): ModuleDict(
+                    (default): Linear(in_features=1280, out_features=4, bias=False)
+                  )
+                  (lora_B): ModuleDict(
+                    (default): Linear(in_features=4, out_features=1280, bias=False)
+                  )
+                  (lora_embedding_A): ParameterDict()
+                  (lora_embedding_B): ParameterDict()
+                )
+                (q_proj): lora.Linear8bitLt(
+                  (base_layer): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+                  (lora_dropout): ModuleDict(
+                    (default): Dropout(p=0.05, inplace=False)
+                  )
+                  (lora_A): ModuleDict(
+                    (default): Linear(in_features=1280, out_features=4, bias=False)
+                  )
+                  (lora_B): ModuleDict(
+                    (default): Linear(in_features=4, out_features=1280, bias=False)
+                  )
+                  (lora_embedding_A): ParameterDict()
+                  (lora_embedding_B): ParameterDict()
+                )
+                (out_proj): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+              )
+              (activation_fn): GELUActivation()
+              (self_attn_layer_norm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (encoder_attn): WhisperSdpaAttention(
+                (k_proj): Linear8bitLt(in_features=1280, out_features=1280, bias=False)
+                (v_proj): lora.Linear8bitLt(
+                  (base_layer): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+                  (lora_dropout): ModuleDict(
+                    (default): Dropout(p=0.05, inplace=False)
+                  )
+                  (lora_A): ModuleDict(
+                    (default): Linear(in_features=1280, out_features=4, bias=False)
+                  )
+                  (lora_B): ModuleDict(
+                    (default): Linear(in_features=4, out_features=1280, bias=False)
+                  )
+                  (lora_embedding_A): ParameterDict()
+                  (lora_embedding_B): ParameterDict()
+                )
+                (q_proj): lora.Linear8bitLt(
+                  (base_layer): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+                  (lora_dropout): ModuleDict(
+                    (default): Dropout(p=0.05, inplace=False)
+                  )
+                  (lora_A): ModuleDict(
+                    (default): Linear(in_features=1280, out_features=4, bias=False)
+                  )
+                  (lora_B): ModuleDict(
+                    (default): Linear(in_features=4, out_features=1280, bias=False)
+                  )
+                  (lora_embedding_A): ParameterDict()
+                  (lora_embedding_B): ParameterDict()
+                )
+                (out_proj): Linear8bitLt(in_features=1280, out_features=1280, bias=True)
+              )
+              (encoder_attn_layer_norm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+              (fc1): Linear8bitLt(in_features=1280, out_features=5120, bias=True)
+              (fc2): Linear8bitLt(in_features=5120, out_features=1280, bias=True)
+              (final_layer_norm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+            )
+          )
+          (layer_norm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (proj_out): Linear(in_features=1280, out_features=51865, bias=False)
+    )
+  )
+)
