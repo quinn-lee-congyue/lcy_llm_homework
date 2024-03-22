@@ -1,0 +1,414 @@
+[2024-03-22 15:01:27,085] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.2
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[2024-03-22 15:01:28,629] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-03-22 15:01:28,630] [INFO] [runner.py:568:main] cmd = /root/deepspeed/bin/python3 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None translation/run_translation.py --deepspeed config/ds_config_zero3.json --model_name_or_path t5-3b --per_device_train_batch_size 1 --output_dir output_dir --overwrite_output_dir --fp16 --do_train --max_train_samples 500 --num_train_epochs 1 --dataset_name wmt16 --dataset_config ro-en --source_lang en --target_lang ro
+[2024-03-22 15:01:30,812] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.2
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[2024-03-22 15:01:31,677] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0]}
+[2024-03-22 15:01:31,677] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=1, node_rank=0
+[2024-03-22 15:01:31,677] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2024-03-22 15:01:31,677] [INFO] [launch.py:163:main] dist_world_size=1
+[2024-03-22 15:01:31,677] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0
+[2024-03-22 15:01:31,677] [INFO] [launch.py:253:main] process 4755 spawned with command: ['/root/deepspeed/bin/python3', '-u', 'translation/run_translation.py', '--local_rank=0', '--deepspeed', 'config/ds_config_zero3.json', '--model_name_or_path', 't5-3b', '--per_device_train_batch_size', '1', '--output_dir', 'output_dir', '--overwrite_output_dir', '--fp16', '--do_train', '--max_train_samples', '500', '--num_train_epochs', '1', '--dataset_name', 'wmt16', '--dataset_config', 'ro-en', '--source_lang', 'en', '--target_lang', 'ro']
+[2024-03-22 15:01:36,460] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.2
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[2024-03-22 15:01:37,021] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-22 15:01:37,021] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+03/22/2024 15:01:37 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: True, 16-bits training: True
+03/22/2024 15:01:37 - INFO - __main__ - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=config/ds_config_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dir/runs/Mar22_15-01-36_ecs-licongyue-9e68,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=output_dir,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dir,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+03/22/2024 15:01:37 - WARNING - __main__ - You're running a t5 model but didn't provide a source prefix, which is expected, e.g. with `--source_prefix 'translate English to German: ' `
+Overwrite dataset info from restored data version if exists.
+03/22/2024 15:01:46 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /root/.cache/huggingface/datasets/wmt16/ro-en/1.0.0/27ea1f6483dca29955adc6a9e7d8a3556fbb1aea
+03/22/2024 15:01:46 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/wmt16/ro-en/1.0.0/27ea1f6483dca29955adc6a9e7d8a3556fbb1aea
+Found cached dataset wmt16 (/root/.cache/huggingface/datasets/wmt16/ro-en/1.0.0/27ea1f6483dca29955adc6a9e7d8a3556fbb1aea)
+03/22/2024 15:01:46 - INFO - datasets.builder - Found cached dataset wmt16 (/root/.cache/huggingface/datasets/wmt16/ro-en/1.0.0/27ea1f6483dca29955adc6a9e7d8a3556fbb1aea)
+Loading Dataset info from /root/.cache/huggingface/datasets/wmt16/ro-en/1.0.0/27ea1f6483dca29955adc6a9e7d8a3556fbb1aea
+03/22/2024 15:01:46 - INFO - datasets.info - Loading Dataset info from /root/.cache/huggingface/datasets/wmt16/ro-en/1.0.0/27ea1f6483dca29955adc6a9e7d8a3556fbb1aea
+[INFO|configuration_utils.py:726] 2024-03-22 15:01:47,758 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--t5-3b/snapshots/bed96aab9ee46012a5046386105ee5fd0ac572f0/config.json
+[INFO|configuration_utils.py:789] 2024-03-22 15:01:47,760 >> Model config T5Config {
+  "_name_or_path": "t5-3b",
+  "architectures": [
+    "T5WithLMHeadModel"
+  ],
+  "classifier_dropout": 0.0,
+  "d_ff": 16384,
+  "d_kv": 128,
+  "d_model": 1024,
+  "decoder_start_token_id": 0,
+  "dense_act_fn": "relu",
+  "dropout_rate": 0.1,
+  "eos_token_id": 1,
+  "feed_forward_proj": "relu",
+  "initializer_factor": 1.0,
+  "is_encoder_decoder": true,
+  "is_gated_act": false,
+  "layer_norm_epsilon": 1e-06,
+  "model_type": "t5",
+  "n_positions": 512,
+  "num_decoder_layers": 24,
+  "num_heads": 32,
+  "num_layers": 24,
+  "output_past": true,
+  "pad_token_id": 0,
+  "relative_attention_max_distance": 128,
+  "relative_attention_num_buckets": 32,
+  "task_specific_params": {
+    "summarization": {
+      "early_stopping": true,
+      "length_penalty": 2.0,
+      "max_length": 200,
+      "min_length": 30,
+      "no_repeat_ngram_size": 3,
+      "num_beams": 4,
+      "prefix": "summarize: "
+    },
+    "translation_en_to_de": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to German: "
+    },
+    "translation_en_to_fr": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to French: "
+    },
+    "translation_en_to_ro": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to Romanian: "
+    }
+  },
+  "transformers_version": "4.40.0.dev0",
+  "use_cache": true,
+  "vocab_size": 32128
+}
+
+[INFO|tokenization_auto.py:629] 2024-03-22 15:01:48,278 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:726] 2024-03-22 15:01:48,789 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--t5-3b/snapshots/bed96aab9ee46012a5046386105ee5fd0ac572f0/config.json
+[INFO|configuration_utils.py:789] 2024-03-22 15:01:48,790 >> Model config T5Config {
+  "_name_or_path": "t5-3b",
+  "architectures": [
+    "T5WithLMHeadModel"
+  ],
+  "classifier_dropout": 0.0,
+  "d_ff": 16384,
+  "d_kv": 128,
+  "d_model": 1024,
+  "decoder_start_token_id": 0,
+  "dense_act_fn": "relu",
+  "dropout_rate": 0.1,
+  "eos_token_id": 1,
+  "feed_forward_proj": "relu",
+  "initializer_factor": 1.0,
+  "is_encoder_decoder": true,
+  "is_gated_act": false,
+  "layer_norm_epsilon": 1e-06,
+  "model_type": "t5",
+  "n_positions": 512,
+  "num_decoder_layers": 24,
+  "num_heads": 32,
+  "num_layers": 24,
+  "output_past": true,
+  "pad_token_id": 0,
+  "relative_attention_max_distance": 128,
+  "relative_attention_num_buckets": 32,
+  "task_specific_params": {
+    "summarization": {
+      "early_stopping": true,
+      "length_penalty": 2.0,
+      "max_length": 200,
+      "min_length": 30,
+      "no_repeat_ngram_size": 3,
+      "num_beams": 4,
+      "prefix": "summarize: "
+    },
+    "translation_en_to_de": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to German: "
+    },
+    "translation_en_to_fr": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to French: "
+    },
+    "translation_en_to_ro": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to Romanian: "
+    }
+  },
+  "transformers_version": "4.40.0.dev0",
+  "use_cache": true,
+  "vocab_size": 32128
+}
+
+[INFO|tokenization_utils_base.py:2096] 2024-03-22 15:01:49,807 >> loading file spiece.model from cache at /root/.cache/huggingface/hub/models--t5-3b/snapshots/bed96aab9ee46012a5046386105ee5fd0ac572f0/spiece.model
+[INFO|tokenization_utils_base.py:2096] 2024-03-22 15:01:49,807 >> loading file tokenizer.json from cache at /root/.cache/huggingface/hub/models--t5-3b/snapshots/bed96aab9ee46012a5046386105ee5fd0ac572f0/tokenizer.json
+[INFO|tokenization_utils_base.py:2096] 2024-03-22 15:01:49,807 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2096] 2024-03-22 15:01:49,807 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2096] 2024-03-22 15:01:49,808 >> loading file tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:726] 2024-03-22 15:01:49,808 >> loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--t5-3b/snapshots/bed96aab9ee46012a5046386105ee5fd0ac572f0/config.json
+[INFO|configuration_utils.py:789] 2024-03-22 15:01:49,809 >> Model config T5Config {
+  "_name_or_path": "t5-3b",
+  "architectures": [
+    "T5WithLMHeadModel"
+  ],
+  "classifier_dropout": 0.0,
+  "d_ff": 16384,
+  "d_kv": 128,
+  "d_model": 1024,
+  "decoder_start_token_id": 0,
+  "dense_act_fn": "relu",
+  "dropout_rate": 0.1,
+  "eos_token_id": 1,
+  "feed_forward_proj": "relu",
+  "initializer_factor": 1.0,
+  "is_encoder_decoder": true,
+  "is_gated_act": false,
+  "layer_norm_epsilon": 1e-06,
+  "model_type": "t5",
+  "n_positions": 512,
+  "num_decoder_layers": 24,
+  "num_heads": 32,
+  "num_layers": 24,
+  "output_past": true,
+  "pad_token_id": 0,
+  "relative_attention_max_distance": 128,
+  "relative_attention_num_buckets": 32,
+  "task_specific_params": {
+    "summarization": {
+      "early_stopping": true,
+      "length_penalty": 2.0,
+      "max_length": 200,
+      "min_length": 30,
+      "no_repeat_ngram_size": 3,
+      "num_beams": 4,
+      "prefix": "summarize: "
+    },
+    "translation_en_to_de": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to German: "
+    },
+    "translation_en_to_fr": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to French: "
+    },
+    "translation_en_to_ro": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to Romanian: "
+    }
+  },
+  "transformers_version": "4.40.0.dev0",
+  "use_cache": true,
+  "vocab_size": 32128
+}
+
+[INFO|modeling_utils.py:3283] 2024-03-22 15:01:49,925 >> loading weights file model.safetensors from cache at /root/.cache/huggingface/hub/models--t5-3b/snapshots/bed96aab9ee46012a5046386105ee5fd0ac572f0/model.safetensors
+[INFO|modeling_utils.py:3392] 2024-03-22 15:01:50,203 >> Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+[INFO|configuration_utils.py:928] 2024-03-22 15:01:50,209 >> Generate config GenerationConfig {
+  "decoder_start_token_id": 0,
+  "eos_token_id": 1,
+  "pad_token_id": 0
+}
+
+[2024-03-22 15:01:55,190] [INFO] [partition_parameters.py:345:__exit__] finished initializing model - num_params = 510, num_elems = 2.88B
+[INFO|modeling_utils.py:4024] 2024-03-22 15:02:38,228 >> All model checkpoint weights were used when initializing T5ForConditionalGeneration.
+
+[INFO|modeling_utils.py:4032] 2024-03-22 15:02:38,229 >> All the weights of T5ForConditionalGeneration were initialized from the model checkpoint at t5-3b.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use T5ForConditionalGeneration for predictions without further training.
+[INFO|modeling_utils.py:3573] 2024-03-22 15:02:38,744 >> Generation config file not found, using a generation config created from the model config.
+[INFO|modeling_utils.py:1893] 2024-03-22 15:02:38,979 >> You are resizing the embedding layer without providing a `pad_to_multiple_of` parameter. This means that the new embedding dimension will be 32100. This might induce some performance reduction as *Tensor Cores* will not be available. For more details about this, or help on choosing the correct value for resizing, refer to this guide: https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html#requirements-tc
+Loading cached processed dataset at /root/.cache/huggingface/datasets/wmt16/ro-en/1.0.0/27ea1f6483dca29955adc6a9e7d8a3556fbb1aea/cache-88d03fbf310be5bf.arrow
+03/22/2024 15:02:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /root/.cache/huggingface/datasets/wmt16/ro-en/1.0.0/27ea1f6483dca29955adc6a9e7d8a3556fbb1aea/cache-88d03fbf310be5bf.arrow
+/root/deepspeed/lib/python3.10/site-packages/accelerate/accelerator.py:432: FutureWarning: Passing the following arguments to `Accelerator` is deprecated and will be removed in version 1.0 of Accelerate: dict_keys(['dispatch_batches', 'split_batches', 'even_batches', 'use_seedable_sampler']). Please pass an `accelerate.DataLoaderConfiguration` instead: 
+dataloader_config = DataLoaderConfiguration(dispatch_batches=None, split_batches=False, even_batches=True, use_seedable_sampler=True)
+  warnings.warn(
+[INFO|trainer.py:607] 2024-03-22 15:02:42,062 >> Using auto half precision backend
+[2024-03-22 15:02:42,221] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.14.1+0529eac6, git-hash=0529eac6, git-branch=master
+[2024-03-22 15:02:42,240] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.000050, betas=(0.900000, 0.999000), weight_decay=0.000000, adam_w=1
+[2024-03-22 15:02:43,855] [INFO] [logging.py:96:log_dist] [Rank 0] Using DeepSpeed Optimizer param name adamw as basic optimizer
+[2024-03-22 15:02:43,855] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-03-22 15:02:43,896] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-03-22 15:02:43,896] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-03-22 15:02:43,896] [INFO] [logging.py:96:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2024-03-22 15:02:43,896] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.float16 ZeRO stage 3 optimizer
+[2024-03-22 15:02:44,042] [INFO] [utils.py:800:see_memory_usage] Stage 3 initialize beginning
+[2024-03-22 15:02:44,042] [INFO] [utils.py:801:see_memory_usage] MA 0.06 GB         Max_MA 0.18 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-03-22 15:02:44,043] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 10.98 GB, percent = 35.1%
+[2024-03-22 15:02:44,047] [INFO] [stage3.py:130:__init__] Reduce bucket size 1048576
+[2024-03-22 15:02:44,047] [INFO] [stage3.py:131:__init__] Prefetch bucket size 943718
+[2024-03-22 15:02:44,174] [INFO] [utils.py:800:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2024-03-22 15:02:44,175] [INFO] [utils.py:801:see_memory_usage] MA 0.06 GB         Max_MA 0.06 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-03-22 15:02:44,175] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 10.98 GB, percent = 35.1%
+Parameter Offload: Total persistent parameters: 126976 in 124 params
+[2024-03-22 15:02:44,368] [INFO] [utils.py:800:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2024-03-22 15:02:44,369] [INFO] [utils.py:801:see_memory_usage] MA 0.0 GB         Max_MA 0.06 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-03-22 15:02:44,369] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 10.99 GB, percent = 35.1%
+[2024-03-22 15:02:44,504] [INFO] [utils.py:800:see_memory_usage] Before creating fp16 partitions
+[2024-03-22 15:02:44,505] [INFO] [utils.py:801:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-03-22 15:02:44,505] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 10.99 GB, percent = 35.1%
+[2024-03-22 15:02:48,927] [INFO] [utils.py:800:see_memory_usage] After creating fp16 partitions: 3
+[2024-03-22 15:02:48,927] [INFO] [utils.py:801:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-03-22 15:02:48,928] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 19.16 GB, percent = 61.1%
+[2024-03-22 15:02:49,063] [INFO] [utils.py:800:see_memory_usage] Before creating fp32 partitions
+[2024-03-22 15:02:49,063] [INFO] [utils.py:801:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-03-22 15:02:49,064] [INFO] [utils.py:808:see_memory_usage] CPU Virtual Memory:  used = 19.16 GB, percent = 61.1%
+[2024-03-22 15:02:55,810] [INFO] [launch.py:316:sigkill_handler] Killing subprocess 4755
+[2024-03-22 15:02:55,812] [ERROR] [launch.py:322:sigkill_handler] ['/root/deepspeed/bin/python3', '-u', 'translation/run_translation.py', '--local_rank=0', '--deepspeed', 'config/ds_config_zero3.json', '--model_name_or_path', 't5-3b', '--per_device_train_batch_size', '1', '--output_dir', 'output_dir', '--overwrite_output_dir', '--fp16', '--do_train', '--max_train_samples', '500', '--num_train_epochs', '1', '--dataset_name', 'wmt16', '--dataset_config', 'ro-en', '--source_lang', 'en', '--target_lang', 'ro'] exits with return code = -9
